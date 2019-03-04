@@ -12,22 +12,30 @@ public class Game {
 
         run();
     }
-
+    // 0 - Correct, 1 - Spot taken, 2 - Invalid Range
     private void run() {
+        System.out.println("Welcome to TicTacToe! Get ready to play...");
         while(s == GameState.RUNNING) {
-            board.printBoard();
-            System.out.println("Welcome to TicTacToe! Get ready to play...");
-            System.out.println("Player " + board.currentPlayer() + ", choose your row:");
-            int row = scan.nextInt();
-            System.out.println("Player " + board.currentPlayer() + ", choose your column:");
-            int colm = scan.nextInt();
-            if(board.move(row, colm) == 0) {
-                //print box
-            } else if (board.move(row, colm) == 1) {
-
-            } else {
-
+            int choose = 0;
+            while(choose == 0) {
+                System.out.println("Player \"" + board.currentPlayer() + "\", choose your row:");
+                int row = scan.nextInt();
+                System.out.println("Player \"" + board.currentPlayer() + "\", choose your column:");
+                int colm = scan.nextInt();
+                if(board.move(row, colm) == 0) {
+                    board.printBoard();
+                    choose = 1;
+                } else if (board.move(row, colm) == 1) {
+                    System.out.println("-----------------------------------");
+                    System.out.println("That spot is already taken, try again!");
+                    System.out.println("-----------------------------------");
+                } else {
+                    System.out.println("-----------------------------------");
+                    System.out.println("That is not a correct range (0-2)!");
+                    System.out.println("-----------------------------------");
+                }
             }
+
         }
     }
 }
