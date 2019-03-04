@@ -9,11 +9,9 @@ public class Game {
         board = new Board();
         s = GameState.RUNNING;
         scan = new Scanner(System.in);
-
-        run();
     }
     // 0 - Correct, 1 - Spot taken, 2 - Invalid Range
-    private void run() {
+    public void run() {
         System.out.println("Welcome to TicTacToe! Get ready to play...");
         while(s == GameState.RUNNING) {
             if(board.checkWin()) {
