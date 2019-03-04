@@ -4,31 +4,54 @@ public class Board {
 
     public Board() {
         boxes = new Box[3][3];
+        initBoxes();
         id = 0;
     }
 
-    //0 = O
-    //1 = X
+    private void initBoxes() {
+        for(int i = 0; i < boxes.length; i++) {
+            for(int j = 0; j < boxes[i].length; j++) {
+                boxes[i][j] = new Box(BoxType.NONE);
+            }
+        }
+    }
+
+    //Error Codes
+    // 0 - Correct, 1 - Spot taken, 2 - Invalid Range
     public int move(int r, int c) {
         if(r > 2 || r < 0 || c > 2 || c < 0)
             return 2;
 
-        if(id == 0) {
-            if(boxes[r][c] == null) {
-                boxes[r][c] = new Box(BoxType.O);
-                return 0;
-            }
-
-            id = 1;
-            return 1;
-        } else {
-            if(boxes[r][c] == null) {
-                boxes[r][c] = new Box(BoxType.X);
-                return 0;
-            }
-
-            id = 0;
+        if(boxes[r][c].getBoxType() != BoxType.NONE) {
             return 1;
         }
+
+        if(id == 0) {
+            boxes[r][c] = new Box(BoxType.O);
+            id = 1;
+            return 0;
+        } else {
+            boxes[r][c] = new Box(BoxType.X);
+            id = 0;
+            return 0;
+        }
+    }
+
+    public String currentPlayer() {
+        if(id == 0) {
+            return "O";
+        }
+        return "X";
+    }
+
+    @SuppressWarnings("Duplicates")
+    public void printBoard() {
+        System.out.println("-------------");
+        System.out.println("| " + boxes[0][0].getBoxType().toString() + " | " + boxes[0][1].getBoxType().toString() + " | " + boxes[0][2].getBoxType().toString() + " |");
+        System.out.println("-------------");
+        System.out.println("| " + boxes[1][0].getBoxType().toString() + " | " + boxes[1][1].getBoxType().toString() + " | " + boxes[1][2].getBoxType().toString() + " |");
+        System.out.println("-------------");
+        System.out.println("| " + boxes[2][0].getBoxType().toString() + " | " + boxes[2][1].getBoxType().toString() + " | " + boxes[2][2].getBoxType().toString() + " |");
+        System.out.println("-------------");
     }
 }

@@ -15,12 +15,19 @@ public class Game {
 
     private void run() {
         while(s == GameState.RUNNING) {
+            board.printBoard();
             System.out.println("Welcome to TicTacToe! Get ready to play...");
-            System.out.println("Player O, choose your ");
-        }
-    }
+            System.out.println("Player " + board.currentPlayer() + ", choose your row:");
+            int row = scan.nextInt();
+            System.out.println("Player " + board.currentPlayer() + ", choose your column:");
+            int colm = scan.nextInt();
+            if(board.move(row, colm) == 0) {
+                //print box
+            } else if (board.move(row, colm) == 1) {
 
-    private void move(int r, int c) {
-        board.move(r, c);
+            } else {
+
+            }
+        }
     }
 }
