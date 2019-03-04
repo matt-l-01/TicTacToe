@@ -44,6 +44,29 @@ public class Board {
         return "X";
     }
 
+    public boolean checkWin() {
+        if(boxes[0][0].getBoxType() == boxes[0][1].getBoxType() && boxes[0][1].getBoxType() == boxes[0][2].getBoxType() && boxes[0][1].getBoxType() != BoxType.NONE)
+            return true;
+        if(boxes[1][0].getBoxType() == boxes[1][1].getBoxType() && boxes[1][1].getBoxType() == boxes[1][2].getBoxType() && boxes[1][1].getBoxType() != BoxType.NONE)
+            return true;
+        if(boxes[2][0].getBoxType() == boxes[2][1].getBoxType() && boxes[2][1].getBoxType() == boxes[2][2].getBoxType() && boxes[2][1].getBoxType() != BoxType.NONE)
+            return true;
+
+        if(boxes[0][0].getBoxType() == boxes[1][0].getBoxType() && boxes[1][0].getBoxType() == boxes[2][0].getBoxType() && boxes[1][0].getBoxType() != BoxType.NONE)
+            return true;
+        if(boxes[0][1].getBoxType() == boxes[1][1].getBoxType() && boxes[1][1].getBoxType() == boxes[2][1].getBoxType() && boxes[1][1].getBoxType() != BoxType.NONE)
+            return true;
+        if(boxes[0][2].getBoxType() == boxes[1][2].getBoxType() && boxes[1][2].getBoxType() == boxes[2][2].getBoxType() && boxes[1][2].getBoxType() != BoxType.NONE)
+            return true;
+
+        if(boxes[0][0].getBoxType() == boxes[1][1].getBoxType() && boxes[1][1].getBoxType() == boxes[2][2].getBoxType() && boxes[1][1].getBoxType() != BoxType.NONE)
+            return true;
+        if(boxes[0][2].getBoxType() == boxes[1][1].getBoxType() && boxes[1][1].getBoxType() == boxes[2][0].getBoxType() && boxes[1][1].getBoxType() != BoxType.NONE)
+            return true;
+
+        return false;
+    }
+
     @SuppressWarnings("Duplicates")
     public void printBoard() {
         System.out.println("-------------");

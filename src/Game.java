@@ -18,6 +18,16 @@ public class Game {
         while(s == GameState.RUNNING) {
             int choose = 0;
             while(choose == 0) {
+                if(board.checkWin()) {
+                    System.out.println("-----------------------------------");
+                    System.out.println();
+                    System.out.println("            WINNER: " + board.currentPlayer());
+                    System.out.println();
+                    System.out.println("-----------------------------------");
+                    s = GameState.ENDGAME;
+                    break;
+                }
+
                 System.out.println("Player \"" + board.currentPlayer() + "\", choose your row:");
                 int row = scan.nextInt();
                 System.out.println("Player \"" + board.currentPlayer() + "\", choose your column:");
@@ -35,7 +45,6 @@ public class Game {
                     System.out.println("-----------------------------------");
                 }
             }
-
         }
     }
 }
