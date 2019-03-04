@@ -1,5 +1,5 @@
 public class TicTacToe {
     public static void main(String[] args) {
-        System.out.println("Hello worlddd!!");
+        System.out.println("Hello wordlddd!!");
     }
 }
