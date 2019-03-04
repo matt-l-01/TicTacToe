@@ -21,7 +21,7 @@ public class Game {
                 if(board.checkWin()) {
                     System.out.println("-----------------------------------");
                     System.out.println();
-                    System.out.println("            WINNER: " + board.currentPlayer());
+                    System.out.println("            WINNER: " + board.currentWinner());
                     System.out.println();
                     System.out.println("-----------------------------------");
                     s = GameState.ENDGAME;

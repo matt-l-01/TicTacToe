@@ -44,6 +44,14 @@ public class Board {
         return "X";
     }
 
+    //Runs opposite
+    public String currentWinner() {
+        if(id == 1) {
+            return "O";
+        }
+        return "X";
+    }
+
     public boolean checkWin() {
         if(boxes[0][0].getBoxType() == boxes[0][1].getBoxType() && boxes[0][1].getBoxType() == boxes[0][2].getBoxType() && boxes[0][1].getBoxType() != BoxType.NONE)
             return true;
