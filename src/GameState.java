@@ -1,3 +1,3 @@
 public enum GameState {
-    RUNNING, STOP
+    RUNNING, ENDGAME, EXIT
 }

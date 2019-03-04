@@ -1,7 +1,11 @@
 public class Box {
-    private String state;
+    private BoxType bt;
 
-    public Box() {
-        state = "O";
+    public Box(BoxType bt) {
+        this.bt = bt;
+    }
+
+    public BoxType getBoxType() {
+        return bt;
     }
 }
