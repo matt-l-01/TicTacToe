@@ -16,25 +16,25 @@ public class Game {
     private void run() {
         System.out.println("Welcome to TicTacToe! Get ready to play...");
         while(s == GameState.RUNNING) {
-            int choose = 0;
-            while(choose == 0) {
-                if(board.checkWin()) {
-                    System.out.println("-----------------------------------");
-                    System.out.println();
-                    System.out.println("            WINNER: " + board.currentWinner());
-                    System.out.println();
-                    System.out.println("-----------------------------------");
-                    s = GameState.ENDGAME;
-                    break;
-                }
+            if(board.checkWin()) {
+                System.out.println("-----------------------------------");
+                System.out.println();
+                System.out.println("            WINNER: " + board.currentWinner());
+                System.out.println();
+                System.out.println("-----------------------------------");
+                s = GameState.ENDGAME;
+                break;
+            }
 
+            int correctInput = 0;
+            while(correctInput == 0) {
                 System.out.println("Player \"" + board.currentPlayer() + "\", choose your row:");
                 int row = scan.nextInt();
                 System.out.println("Player \"" + board.currentPlayer() + "\", choose your column:");
                 int colm = scan.nextInt();
                 if(board.move(row, colm) == 0) {
                     board.printBoard();
-                    choose = 1;
+                    correctInput = 1;
                 } else if (board.move(row, colm) == 1) {
                     System.out.println("-----------------------------------");
                     System.out.println("That spot is already taken, try again!");
