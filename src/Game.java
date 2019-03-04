@@ -26,6 +26,16 @@ public class Game {
                 break;
             }
 
+            if(board.checkTie()) {
+                System.out.println("-----------------------------------");
+                System.out.println();
+                System.out.println("                TIED");
+                System.out.println();
+                System.out.println("-----------------------------------");
+                s = GameState.ENDGAME;
+                break;
+            }
+
             int correctInput = 0;
             while(correctInput == 0) {
                 System.out.println("Player \"" + board.currentPlayer() + "\", choose your row:");

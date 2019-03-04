@@ -75,6 +75,16 @@ public class Board {
         return false;
     }
 
+    public boolean checkTie() {
+        for(int i = 0; i < boxes.length; i++) {
+            for(int j = 0; j < boxes[i].length; j++) {
+                if(boxes[i][j].getBoxType() == BoxType.NONE)
+                    return false;
+            }
+        }
+        return true;
+    }
+
     @SuppressWarnings("Duplicates")
     public void printBoard() {
         System.out.println("-------------");
