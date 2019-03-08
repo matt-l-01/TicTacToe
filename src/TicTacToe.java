@@ -1,6 +1,6 @@
 public class TicTacToe {
     public static void main(String[] args) {
-        Game gg = new Game();
-        gg.run();
+        Game g = new Game();
+        g.run();
     }
 }
